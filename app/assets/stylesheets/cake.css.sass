@@ -1,0 +1,97 @@
+$unit: 3px
+
+@mixin cylinder($width,$height,$proportion: .33)
+  position: relative
+  width: $width
+  height: $height
+  // So silly! I can't change &:before with jQuery, so I can't use the sliders
+  .cakebottom, &:after
+    // only using chrome for now, so not adding in moz
+    -webkit-transform: scaley($proportion)
+    width: $width
+    height: $width
+    border-radius: $width
+    display: block
+    position: absolute
+  // after is on top of before so that the z-index works
+  &:after
+    content: ' '
+    top: -1 * $width/2
+  .cakebottom
+    top: $height - $width/2
+
+fieldset
+  border: none
+  span
+    padding-right: 10px
+  span + span
+    padding-left: 10px
+    border-left: 1px solid black
+body.stripe_patterns, body.cakeulator
+  section
+    margin: 1%
+    float: left
+  ol
+    list-style-type: none
+    padding: 0
+    margin: 0
+    li
+      display: block
+      background-color: #99f
+      @for $i from 1 through 11
+        &:nth-child(#{$i})
+          height: $unit * fibonacci($i)
+
+body.stripe_patterns
+  section
+    width: 30%
+    &.alternating li
+      &:nth-child(even)
+        background-color: #fff
+    &.padded li
+      margin-bottom: 2 * $unit
+    &.spaced li
+      @for $i from 1 through 10
+        &:nth-child(#{$i})
+          margin-bottom: $unit * fibonacci($i)
+    ol
+      border-bottom: $unit solid #ccc
+
+body.cakeulator
+  $inch: 25px
+  ol li
+    margin-bottom: $unit
+    background-color: rgba(0,0,255,.3)
+  section
+    width: 45%
+    position: relative
+    .tiers, .stripes
+      position: absolute
+      width: 16 * $inch
+  .tiers
+    &> div
+      background: #ccc
+      height: 4 * $inch
+      margin: auto
+    .first
+      width: 8 * $inch
+    .second
+      width: 12 * $inch
+    .third
+      width: 16 * $inch
+    &.angle > div
+      .cakebottom
+        background: #ccc
+      &:after
+        background: #eee
+      &.first
+        z-index: 3
+        @include cylinder(8 * $inch, 4 * $inch)
+      &.second
+        z-index: 2
+        @include cylinder(12 * $inch, 4 * $inch)
+      &.third
+        z-index: 1
+        @include cylinder(16 * $inch, 4 * $inch)
+
+

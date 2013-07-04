@@ -1,0 +1,69 @@
+%a#generate_url{href: '#',data: {rootUrl: cakeulator_url}} Generate url
+%pre.url
+%form
+  %fieldset
+    %span
+      %label
+        spacing (
+        %span#spacing_value
+        )
+      %input#spacing{type: :range, min: 1, max: 40, value: params[:spacing] || 3}
+    %span
+      %label{for: 'fib_spacing'}
+        %input#fib_spacing{type: :checkbox, checked: params[:fib_spacing] == 'true'}
+        use fibonacci spacing
+    %span
+      %label{for: 'reflow_stripes'}
+        %input#reflow_stripes{type: :checkbox, checked: params[:reflow_stripes] == 'true'}
+        reflow stripes
+  %fieldset
+    %label 
+      stripe height (
+      %span#stripe_height_value
+      )
+    %input#stripes{type: :range, min: 1, max: 20, value: params[:stripes] || 3}
+  %fieldset
+    %label zoom tiers height
+    %input#tiers{type: :range, min: 5, max: 45, value: params[:tiers] || 25}
+  %fieldset
+    %span
+      tier 1 height:
+      %label{for: 'first_4'}
+        %input#first_4{type: :radio, value: 4, name: 'first', checked: params[:first_tier] != '5'}
+        4 in
+      %label{for: 'first_5'}
+        %input#first_5{type: :radio, value: 5, name: 'first', checked: params[:first_tier] == '5'}
+        5 in
+    %span
+      tier 2 height:
+      %label{for: 'second_4'}
+        %input#second_4{type: :radio, value: 4, name: 'second', checked: params[:second_tier] != '5'}
+        4 in
+      %label{for: 'second_5'}
+        %input#second_5{type: :radio, value: 5, name: 'second', checked: params[:second_tier] == '5'}
+        5 in
+    %span
+      tier 3 height:
+      %label{for: 'third_4'}
+        %input#third_4{type: :radio, value: 4, name: 'third', checked: params[:third_tier] != '5'}
+        4 in
+      %label{for: 'third_5'}
+        %input#third_5{type: :radio, value: 5, name: 'third', checked: params[:third_tier] == '5'}
+        5 in
+%section
+  .tiers.straight
+    .first
+    .second
+    .third
+  .stripes
+    %ol
+      - 10.times do
+        %li
+%section
+  .tiers.angle
+    .first
+      .cakebottom
+    .second
+      .cakebottom
+    .third
+      .cakebottom

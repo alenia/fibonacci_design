@@ -1,0 +1,32 @@
+.fibonacci{class: params[:font]}
+  .container.thirteen
+    .square.eight.left{class: params[:case]}
+      August
+    .container.five
+      .square.five
+      .container.two
+        .square.one
+        .square.one
+        .square.two
+      .square.three
+        3rd
+    .square.thirteen.left.bottom
+      2013
+  .square.twenty_one.bottom
+.clear
+
+.change_font
+  =link_to "Riesling", {font: 'riesling'}, {class: 'riesling'}
+  |
+  =link_to "RIESLING", {font: 'riesling', case: 'upcase'}, {class: 'riesling'}
+  |
+  =link_to "UpperEastSide", {font: 'upper_east_side'}, {class: 'upper_east_side'}
+  |
+  =link_to "UPPEREASTSIDE", {font: 'upper_east_side', case: 'upcase'}, {class: 'upper_east_side'}
+  |
+  =link_to "Dorsa", {font: 'dorsa'}, {class: 'dorsa'}
+  |
+  =link_to "DORSA", {font: 'dorsa', case: 'upcase'}, {class: 'dorsa'}
+  |
+  =link_to "Diner", {font: 'diner'}, {class: 'diner'}
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FibonacciDesign</title>
+  <link href='http://fonts.googleapis.com/css?family=Dorsa' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%="#{controller.controller_name} #{controller.action_name}"%>">
+
+<%= yield %>
+
+<%= javascript_include_tag "application" %>
+</body>
+</html>

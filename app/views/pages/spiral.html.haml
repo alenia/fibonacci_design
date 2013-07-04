@@ -1,0 +1,5 @@
+%ol{class: "fib_count_#{params[:fib_count]} " + (params[:three_spiral] ? "three_spiral " : "")+(params[:normalize] ? "normalize" : "")}
+  -15.times do |n|
+    %li
+      -if params[:text]
+        %span= fib(n+1)

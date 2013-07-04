@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Riesling';
+  src:url('riesling.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'UpperEastSide';
+  src:url('UpperEastSide.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Diner-Regular';
+  src:url('Diner-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Diner-Skinny';
+  src:url('Diner-Skinny.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

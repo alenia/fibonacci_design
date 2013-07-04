@@ -1,0 +1,114 @@
+$unit_length: 20px
+$border_color: #827FEB
+$border_width: 2px
+
+.diner
+  font-family: 'Diner-Regular'
+.upper_east_side
+  font-family: 'UpperEastSide'
+.riesling
+  font-family: 'Riesling'
+.dorsa
+  font-family: 'Dorsa'
+.upcase
+  text-transform: uppercase
+
+.clear
+  clear: both
+.hide
+  display: none
+
+body.spiral
+  font-size: 40px
+body.invite
+  background-color: #F5F3E6
+
+  .fibonacci.diner .square
+    &.three
+      font-size: 67px
+      letter-spacing: 1px
+    &.eight
+      font-size: 129px
+      letter-spacing: -1px
+    &.thirteen
+      font-family: 'Diner-Skinny'
+      font-size: 302px
+      letter-spacing: 16px
+  .fibonacci.upper_east_side .square
+    &.three
+      font-size: 46px
+    &.eight
+      font-size: 77px
+      &.upcase
+        letter-spacing: -3px
+        font-size: 46px
+    &.thirteen
+      font-size: 129px
+  .fibonacci.dorsa .square
+    &.three
+      font-size: 58px
+      letter-spacing: 6px
+    &.eight
+      font-size: 131px
+      &.upcase
+        font-size: 131px
+    &.thirteen
+      font-size: 357px
+      line-height: 275px
+  .fibonacci.riesling .square
+    &.three
+      font-size: 49px
+    &.eight
+      font-size: 98px
+      &.upcase
+        letter-spacing: -3px
+        font-size: 77px
+    &.thirteen
+      font-size: 162px
+
+  .fibonacci .container
+    box-sizing: border-box
+    float: left
+  .fibonacci .square
+    color: #1137A8
+    box-sizing: border-box
+    padding: 0 5px
+    float: left
+    border-top: $border_width solid $border_color
+    border-right: $border_width solid $border_color
+    &.left
+      border-left: $border_width solid $border_color
+    &.bottom
+      border-bottom: $border_width solid $border_color
+  .fibonacci
+    .one
+      width: $unit_length
+      &.square
+        height: $unit_length
+    .two
+      width: 2*$unit_length
+      &.square
+        height: 2*$unit_length
+    .three
+      width: 3*$unit_length
+      &.square
+        height: 3*$unit_length
+        line-height: 3*$unit_length
+    .five
+      width: 5*$unit_length
+      &.square
+        height: 5*$unit_length
+    .eight
+      width: 8*$unit_length
+      &.square
+        height: 8*$unit_length
+        line-height: 8*$unit_length
+    .thirteen
+      width: 13*$unit_length
+      &.square
+        height: 13*$unit_length
+        line-height: 13*$unit_length
+    .twenty_one
+      width: 21*$unit_length
+      &.square
+        height: 21*$unit_length

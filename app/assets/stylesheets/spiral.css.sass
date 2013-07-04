@@ -1,0 +1,121 @@
+$border_color: black
+$border_width: 1px
+$unit_length: 20px
+
+// how many li's you have. Also, this gets gigantic. Your monitor is probably not.
+$max_fib: 15
+
+@mixin arc($vert, $horz, $radius)
+  //clear out old values
+  border: 0
+  border-radius: 0
+  -moz-border-radius: 0
+  -webkit-border-radius: 0
+
+  border-#{$vert}: 2*$border_width solid $border-color
+  border-#{$horz}: 2*$border_width solid $border-color
+  border-#{$vert}-#{$horz}-radius: $radius
+  -moz-border-radius-#{$vert}-#{$horz}: $radius
+  -webkit-border-radius-#{$vert}-#{$horz}: $radius
+
+@mixin fib_spiral($fib_count, $unit_length, $three_spiral: false)
+  width: fibonacci($fib_count + 1) * $unit_length
+  height: fibonacci($fib_count) * $unit_length
+  li
+    $right-offset: 0
+    $bottom-offset: 0
+    $left-offset: 0
+    $top-offset: 0
+    @for $i from $fib_count + 1 through $max_fib
+      &:nth-child(#{$i})
+        display: none
+    @for $i from 0 through $fib_count
+      //Count down not  up
+      $j: $fib_count - $i
+      $l: $unit_length * fibonacci($j)
+      &:nth-child(#{$j})
+        height: $l
+        width: $l
+        &:after
+          height: $l
+          width: $l
+        @if $j%4 == $fib_count%4
+          right: $right-offset
+          bottom: $bottom-offset
+          $right-offset: $right-offset + $l
+          &:after
+            @include arc('bottom', 'right', $l)
+        @if $j%4 == ($fib_count - 1)%4
+          bottom: $bottom-offset
+          left: $left-offset
+          $bottom-offset: $bottom-offset + $l
+          &:after
+            @include arc('bottom', 'left', $l)
+        @if $j%4 == ($fib_count - 2)%4
+          left: $left-offset
+          top: $top-offset
+          $left-offset: $left-offset + $l
+          &:after
+            @include arc('top', 'left', $l)
+        @if $j%4 == ($fib_count - 3)%4
+          top: $top-offset
+          right: $right-offset
+          $top-offset: $top-offset + $l
+          &:after
+            @include arc('top', 'right', $l)
+      @if $three_spiral
+        &:nth-child(#{$j}):after
+          @if $j%4 == $fib_count%4
+            @include arc('top', 'right', $l)
+          @if $j%4 == ($fib_count + 1)%4
+            @include arc('top', 'left', $l)
+          @if $j%4 == ($fib_count + 2)%4
+            @include arc('bottom', 'left', $l)
+          @if $j%4 == ($fib_count + 3)%4
+            @include arc('bottom', 'right', $l)
+
+body.spiral ol
+  &.fib_count_
+    &:not(.three_spiral)
+      @include fib_spiral(8, $unit_length)
+    &.three_spiral
+      @include fib_spiral(8, $unit_length, 'true')
+  @for $fib_count from 1 through $max_fib
+    $normalized_unit_length: 600px/fibonacci($fib_count)
+    &.fib_count_#{$fib_count}
+      li:nth-child(#{$fib_count}) span
+        font-family: 'Riesling'
+        display: inline
+        float: left
+        font-size: 460px
+        margin-left: 45px
+      &.normalize
+        &:not(.three_spiral)
+          @include fib_spiral($fib_count, $normalized_unit_length)
+        &.three_spiral
+          @include fib_spiral($fib_count, $normalized_unit_length, 'true')
+      &:not(.normalize)
+        &:not(.three_spiral)
+          @include fib_spiral($fib_count, $unit_length)
+        &.three_spiral
+          @include fib_spiral($fib_count, $unit_length, 'true')
+
+  position: relative
+  list-style: none
+  border: $border_width solid $border_color
+  padding: 0
+  li
+    box-sizing: border-box
+    border: $border_width solid $border_color
+    position: absolute
+    margin: 0
+    padding: 0
+    display: block
+    span
+      display: none
+    &:after
+      content: ''
+      display: block
+      box-sizing: border-box
+
+

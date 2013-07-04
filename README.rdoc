@@ -1,0 +1,6 @@
+My wedding day is 8/3/13 so I got a little crazy designing things based on 
+the fibonacci sequence. Rails app to leverage sass/sprockets/haml/all that good stuff that makes life easier.
+
+Happy reading!
+
+Things that most prove I'm crazy are the cakeulator javascript and spiral.css.sass
