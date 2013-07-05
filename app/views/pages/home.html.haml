@@ -1,0 +1,33 @@
+%ul
+  %li
+    =link_to 'cakeulator', cakeulator_path
+    designs for our wedding cake
+  %li
+    =link_to 'spiral', spiral_path
+    fibonacci spirals of whatever sizes, can be modified using url params:
+    %ul
+      %li 
+        %pre fib_count=3 
+        how many squares to show (1-15)
+      %li 
+        %pre three_spiral=true
+        changes spiral pattern
+      %li 
+        %pre normalize=true
+        scale to always show rectangles of height 600px
+      %li 
+        %pre text=true
+        table number design, show a number based on how many squares (looks weird unless normalized is on)
+    %pre= spiral_url(fib_count: 12, three_spiral: true, normalize: true, text: true)
+  %li
+    =link_to 'svg spiral', svg_spiral_path
+    fibonacci spiral design based on svgs
+  %li
+    =link_to 'stripe patterns', stripe_patterns_path
+    static, different options for stripes on cake (precursor to the cakeulator)
+  %li
+    =link_to 'invite', invite_path
+    pick text options for save the dates based on params
+
+    
+
