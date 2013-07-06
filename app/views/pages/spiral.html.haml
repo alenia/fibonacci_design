@@ -3,3 +3,8 @@
     %li
       -if params[:text]
         %span= fib(n+1)
+
+-15.times do |m|
+  -n=m+1
+  %span= link_to fib(n), spiral_path(params.merge(fib_count: n))
+
