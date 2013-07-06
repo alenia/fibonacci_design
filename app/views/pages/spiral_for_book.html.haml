@@ -1,0 +1,18 @@
+%svg{ version: "1.2", 'viewBox' => "-#{fib(4)+fib(8)}.5 -#{fib(3)+fib(7)}.5 90 70"}
+  %g{fill: "none", stroke: "black", 'stroke-linecap' => "square", "stroke-width" => 2}
+    %g{id: "unit_square"}
+      %rect{ x: "0", y: "0",
+        width: "1", height: "1", "vector-effect" => "non-scaling-stroke"}
+      %path{d: "M 1,0 A 1,1 0 0 1 0,1", "vector-effect" => "non-scaling-stroke"}
+    %use{'xlink:href' => '#unit_square', transform: 'rotate(-90) translate(-1,1) scale(1)'}
+    %use{'xlink:href' => '#unit_square', transform: 'rotate(180) translate(-2,0) scale(2)'}
+    %use{'xlink:href' => '#unit_square', transform: 'rotate(90)  translate(-2,0) scale(3)'}
+    %use{'xlink:href' => '#unit_square', transform:             'translate(-3,1) scale(5)'}
+    %use{'xlink:href' => '#unit_square', transform: 'rotate(-90) translate(-6,2) scale(8)'}
+    %use{'xlink:href' => '#unit_square', transform: 'rotate(180) translate(-10,2) scale(13)'}
+    %use{'xlink:href' => '#unit_square', transform: 'rotate(90)  translate(-15,3) scale(21)'}
+    %use{'xlink:href' => '#unit_square', transform:             'translate(-24,6) scale(34)'}
+    %use{'xlink:href' => '#unit_square', transform: 'rotate(-90) translate(-40,10) scale(55)'}
+  %text{x: "-#{fib(4)+fib(8)}", y: 50,
+  'font-family' => 'Riesling', "font-size" => 5, kerning: 1.11}
+    HAROLD & DANIELA · AUGUST 3, 2013

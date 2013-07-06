@@ -1,6 +1,6 @@
 FibonacciDesign::Application.routes.draw do
 
-  ['invite','stripe_patterns','cakeulator','spiral','svg_spiral'].each do |action|
+  ['invite','stripe_patterns','cakeulator','spiral','svg_spiral','spiral_for_book'].each do |action|
     get "/#{action}" => "pages##{action}"
   end
   # The priority is based upon order of creation:
