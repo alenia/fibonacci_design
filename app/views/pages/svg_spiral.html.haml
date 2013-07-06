@@ -5,7 +5,7 @@
 - maxfib = params[:fib_count].present? ? params[:fib_count].to_i : 10
 - offset = view_box_offset(maxfib)
 %svg{ version: "1.2", 'viewBox' => "-#{offset[0]}.5 -#{offset[1]}.5 #{fib(maxfib + 1) + 1} #{fib(maxfib) + 1}"}
-  %g{fill: "none", stroke: "black", 'stroke-linecap' => "square", "stroke-width" => 2, transform: "rotate(#{ 90 * ((maxfib - 1) % 4) })"}
+  %g{fill: "transparent", stroke: "black", 'stroke-linecap' => "square", "stroke-width" => 2, transform: "rotate(#{ 90 * ((maxfib - 1) % 4) })"}
     %g{id: "unit_square"}
       %rect{ x: "0", y: "0",
         width: "1", height: "1", "vector-effect" => "non-scaling-stroke"}
@@ -14,3 +14,5 @@
     - shared_options = {'xlink:href' => '#unit_square'}
     - (1..maxfib).each do |i|
       %use{'xlink:href' => '#unit_square', transform: "rotate(#{-90 * (i%4 - 1)} ) translate(#{spiral_offset(i%4,i)},-#{spiral_offset((i+1)%4,i)}) scale(#{fib(i)})"}
+  %text{x: 0.3, y: 0.4, 'font-family' => 'Riesling', "font-size" => 0.6, transform: "translate(#{font_location(maxfib).join(',')}) scale(#{fib(maxfib)})"}
+    =fib(maxfib)
